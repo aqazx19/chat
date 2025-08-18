@@ -38,14 +38,14 @@
         "html-webpack-plugin": "^5.6.0",
         "tailwindcss": "^3.4.10",
         "css-loader": "^7.1.2",
-        "style-loader": "^4.0.0"
+        "style-loader": "^4.0.0",
+        "autoprefixer": "^10.4.20"
     },
     "devDependencies": {
         "@types/express": "^4.17.21",
         "@types/node": "^20.14.9",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
-        "autoprefixer": "^10.4.20",
         "gsap": "^3.13.0",
         "postcss": "^8.4.41",
         "postcss-loader": "^8.1.1",
