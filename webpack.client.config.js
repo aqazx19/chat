@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const { DefinePlugin} = require('webpack');
+const dotenv = require('dotenv');
+dotenv.config();
 module.exports = (_env, argv) => {
   const isDev = argv.mode !== 'production';
 
@@ -60,6 +62,9 @@ module.exports = (_env, argv) => {
         template: path.resolve(__dirname, 'client/public/index.html'),
         minify: isDev ? false : { collapseWhitespace: true, removeComments: true },
       }),
+      new DefinePlugin({
+        'process.env.REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL)
+      })
     ],
     devServer: {
       static: {

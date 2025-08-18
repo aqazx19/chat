@@ -1,5 +1,4 @@
-const API_BASE_URL = '/api';
-
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 function buildUrl(url: string, params?: Record<string, string>): string {
     if (!params) {
         return `${API_BASE_URL}${url}`;
