@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* highlight.js 코드 하이라이트 스타일 */
+@import 'highlight.js/styles/github-dark.css';
+
+/* 다크모드용 코드 하이라이트 */
+@media (prefers-color-scheme: dark) {
+  .hljs {
+    background: #1f2937 !important;
+    color: #e5e7eb;
+  }
+}
+
+/* 라이트모드용 코드 하이라이트 */
+@media (prefers-color-scheme: light) {
+  .hljs {
+    background: #f9fafb !important;
+    color: #374151;
+  }
+}
+
+/* 코드 블록 스타일링 */
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+/* 스트리밍 텍스트 애니메이션 */
+@keyframes typewriter {
+  from { 
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.streaming-text {
+  animation: typewriter 0.3s ease-out;
+}
+
+/* 커서 깜빡임 애니메이션 */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor {
+  animation: blink 1.2s infinite;
+}
+
