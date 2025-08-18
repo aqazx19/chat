@@ -1,11 +1,7 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import type { Configuration as WebpackConfiguration } from 'webpack';
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-type Configuration = WebpackConfiguration & { devServer?: DevServerConfiguration };
-
-export default (_env: unknown, argv: { mode?: string }): Configuration => {
+module.exports = (_env, argv) => {
   const isDev = argv.mode !== 'production';
 
   return {
@@ -78,11 +74,11 @@ export default (_env: unknown, argv: { mode?: string }): Configuration => {
       },
       proxy: [
         {
-            context: ['/api'],
-            target: `http://localhost:4000`,
-            changeOrigin: true,
+          context: ['/api'],
+          target: 'http://localhost:4000',
+          changeOrigin: true,
         },
-    ],
+      ],
       compress: false,
     },
   };
