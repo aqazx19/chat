@@ -17,12 +17,15 @@ app.use(express.static(clientDistDir));
 app.get('*', (_req, res) => {
     res.sendFile(path.join(clientDistDir, 'index.html'));
 });
-mongoose
-    .connect(process.env.MONGO_URI || '')
-    .then(() => {
-        console.log('Connected to MongoDB');
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}`);
-        });
-    })
-    .catch((err) => console.error(err));
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+// mongoose
+//     .connect(process.env.MONGO_URI || '')
+//     .then(() => {
+//         console.log('Connected to MongoDB');
+//         app.listen(PORT, () => {
+//             console.log(`Server running on http://localhost:${PORT}`);
+//         });
+//     })
+//     .catch((err) => console.error(err));
