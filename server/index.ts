@@ -3,12 +3,15 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { createRouter } from './routes';
 import path from 'path';
+import fs from 'fs';
 
 const app = express();
 dotenv.config();
 const PORT = Number(process.env.PORT || 4000);
 app.use(express.json());
 const clientDistDir = path.resolve(process.cwd(), 'client/dist');
+console.log(clientDistDir);
+console.log(fs.readFileSync(path.join(clientDistDir, 'index.html'), 'utf8'));
 app.use('/api', createRouter());
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ ok: true });
