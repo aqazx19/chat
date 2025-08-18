@@ -5,6 +5,44 @@
 /* highlight.js 코드 하이라이트 스타일 */
 @import 'highlight.js/styles/github-dark.css';
 
+/* 모바일 100vh 이슈 보정: dvh 우선 사용 */
+:root {
+  --vh: 1dvh;
+}
+
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh; /* Tailwind의 min-h-screen 유사 클래스 보정 */
+  }
+}
+
+/* iOS 안전영역 보정 및 전체 높이 강제 */
+html, body, #root {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
+body {
+  margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background-color: #0b0b0b;
+}
+
+/* 스크롤 튐/주소창 변화 보정 */
+body {
+  overscroll-behavior-y: none;
+}
+
+/* dvh가 없는 브라우저 fallback */
+.h-100vh {
+  height: 100vh;
+}
+.h-100dvh {
+  height: 100dvh;
+}
+.min-h-100dvh {
+  min-height: 100dvh;
+}
+
 /* 다크모드용 코드 하이라이트 */
 @media (prefers-color-scheme: dark) {
   .hljs {

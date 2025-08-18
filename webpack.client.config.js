@@ -70,6 +70,8 @@ module.exports = (_env, argv) => {
       static: {
         directory: path.resolve(__dirname, 'client/public'),
       },
+      host: '0.0.0.0',
+      allowedHosts: 'all',
       port: 3000,
       open: true,
       hot: true,
@@ -80,7 +82,7 @@ module.exports = (_env, argv) => {
       proxy: [
         {
           context: ['/api'],
-          target: JSON.stringify(process.env.REACT_APP_API_URL),
+          target: `http://localhost:${process.env.PORT || 4000}`,
           changeOrigin: true,
         },
       ],

@@ -24,7 +24,7 @@ export default function ChatModal({
             onClose={onCloseModal}
             showCloseIcon={false}
             classNames={{
-                modal: '!h-[calc(100%-theme(space.5)*2)] w-[calc(100%-theme(space.5)*2)] !p-0 !m-5 !overflow-hidden dark:bg-gray-800 rounded-md',
+                modal: '!h-[min(100dvh,calc(100%-theme(space.5)*2))] w-[calc(100%-theme(space.5)*2)] !p-0 !m-5 !overflow-hidden dark:bg-gray-800 rounded-md',
                 overlay: 'dark:!bg-black/75',
             }}
         >

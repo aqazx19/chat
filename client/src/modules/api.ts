@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+// 개발 환경에서는 proxy를 사용하기 위해 상대 경로 사용
+const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
 function buildUrl(url: string, params?: Record<string, string>): string {
     if (!params) {
         return `${API_BASE_URL}${url}`;
