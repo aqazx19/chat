@@ -17,7 +17,7 @@
     "resolveJsonModule": true,
     "outDir": "dist-ts"
   },
-  "include": ["client/src", "server/src", "client/components/IconButton.tsx"],
+  "include": ["client/src", "server/**/*.ts", "client/components/IconButton.tsx"],
   "exclude": ["node_modules", "client/dist"]
 }
 
