@@ -7,7 +7,7 @@
         "dev:client": "webpack serve --config webpack.client.config.ts --mode development",
         "dev:server": "ts-node-dev --transpile-only --respawn server/index.ts",
         "typecheck": "tsc --noEmit",
-        "build:client": "webpack --config webpack.client.config.ts --mode production",
+        "build:client": "webpack --config webpack.client.config.ts --mode production --require ts-node/register",
         "build": "npm install && npm run build:client",
         "start": "ts-node server/index.ts"
     },
