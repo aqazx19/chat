@@ -12,14 +12,22 @@ export default function ChatModal({
 }): JSX.Element {
     const { messages, sendMessage, isLoading, clearMessages } = useChat();
     const onCloseModal = () => {
-        clearMessages()
+        clearMessages();
         onClose();
     };
     const onMinimizeModal = () => {
         onClose();
     };
     return (
-        <Modal open={open} onClose={onCloseModal} showCloseIcon={false}>
+        <Modal
+            open={open}
+            onClose={onCloseModal}
+            showCloseIcon={false}
+            classNames={{
+                modal: '!h-[calc(100%-theme(space.5)*2)] w-[calc(100%-theme(space.5)*2)] !p-0 !m-5 !overflow-hidden dark:bg-gray-800 rounded-md',
+                overlay: 'dark:!bg-black/75',
+            }}
+        >
             <ChatBox
                 onMinimize={onMinimizeModal}
                 onClose={onCloseModal}

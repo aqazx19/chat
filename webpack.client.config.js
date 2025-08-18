@@ -80,7 +80,7 @@ module.exports = (_env, argv) => {
       proxy: [
         {
           context: ['/api'],
-          target: 'http://localhost:4000',
+          target: JSON.stringify(process.env.REACT_APP_API_URL),
           changeOrigin: true,
         },
       ],
