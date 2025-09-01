@@ -21,14 +21,14 @@ export default function App(): JSX.Element {
         {
             brand: '비비큐',
             name: '비비큐 자메이카 통다리',
-            src: '/images/비비큐.jpeg',
+                src: '/images/bbq.jpeg',
             desc: '비비큐 자메이카 통다리!! 이거 정말 내가 먹어보고싶은 치킨이야... 개인적으로 이거 사주면 너무 좋겠다~~',
             giftUrl: 'https://kko.kakao.com/XH7ZXWbRkx',
         },
         {
             brand: '교촌치킨',
             name: '교촌치킨 반반콤보',
-            src: '/images/교촌치킨.jpeg',
+            src: '/images/geo.jpeg',
             desc: '교촌치킨 반반콤보는 내가 아주 좋아하는 치킨이지! 특히 레드는 알싸한게 아주 맛있어~ 예전 우리 검암동살때 서해아파트 근처에 교촌치킨집이 있어서 아빠가 사주곤 했었어. 이제는 누나가 사줄래?',
             giftUrl: 'https://kko.kakao.com/rbq-TLMNPd',
         },

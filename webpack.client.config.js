@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin} = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = (_env, argv) => {
@@ -64,7 +65,17 @@ module.exports = (_env, argv) => {
       }),
       new DefinePlugin({
         'process.env.REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL)
-      })
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, 'client/public'),
+            to: '.',
+            noErrorOnMissing: true,
+            globOptions: { ignore: ['**/index.html'] },
+          },
+        ],
+      }),
     ],
     devServer: {
       static: {
