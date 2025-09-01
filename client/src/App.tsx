@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import FloatButton from './FloatButton';
 import Modal from './components/Modal';
+import TextType from './components/TextType';
 
 export default function App(): JSX.Element {
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ export default function App(): JSX.Element {
         {
             brand: '비비큐',
             name: '비비큐 자메이카 통다리',
-                src: '/images/bbq.jpeg',
+            src: '/images/bbq.jpeg',
             desc: '비비큐 자메이카 통다리!! 이거 정말 내가 먹어보고싶은 치킨이야... 개인적으로 이거 사주면 너무 좋겠다~~',
             giftUrl: 'https://kko.kakao.com/XH7ZXWbRkx',
         },
@@ -59,12 +60,13 @@ export default function App(): JSX.Element {
 
                 {/* Hero */}
                 <section className="max-w-3xl mx-auto px-4 md:px-6 pt-10 pb-10 md:pt-20 md:pb-14">
-                    <h1
-                        className="text-4xl md:text-6xl font-extrabold tracking-tight text-center"
-                        style={{ animation: 'fadeUp 400ms ease both' }}
-                    >
-                        세현이는 치킨이 먹고싶다!!
-                    </h1>
+                    <div className="flex flex-col items-center justify-center">
+                        <TextType
+                            text="세현이는 치킨이 먹고싶다!!"
+                            showCursor={false}
+                            className="text-center text-2xl md:text-3xl font-bold"
+                        />
+                    </div>
                     <p
                         className="mt-4 md:mt-6 text-center text-slate-600 text-base md:text-lg leading-relaxed"
                         style={{ animation: 'fadeUp 500ms ease both' }}
@@ -136,10 +138,11 @@ export default function App(): JSX.Element {
 
                     <div
                         ref={carouselRef}
-                        className="-mx-4 px-4 overflow-x-auto scrollbar-none snap-x snap-mandatory"
+                        className="-mx-4 px-4 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-px-4 md:scroll-px-6"
                         style={{ scrollBehavior: 'smooth' }}
                     >
-                        <div className="flex gap-4 pb-2">
+                        <div className="flex gap-4 pb-2 m-4">
+                            {/* <div className="shrink-0 w-4 md:w-6 snap-start" aria-hidden="true" /> */}
                             {chickens.map((item, index) => (
                                 <article
                                     key={index}
@@ -182,6 +185,10 @@ export default function App(): JSX.Element {
                                     </div>
                                 </article>
                             ))}
+                            <div
+                                className="shrink-0 w-4 md:w-6 snap-end"
+                                aria-hidden="true"
+                            />
                         </div>
                     </div>
                 </section>
