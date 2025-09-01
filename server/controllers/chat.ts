@@ -6,9 +6,6 @@ import {
     ChatCompletionMessageParam,
 } from 'openai/resources';
 const SYSTEM_PROMPT = `
-저는 유용한 AI 어시스턴트입니다.
- 만약 특정 정보를 찾아야 하거나 계산이 필요하면 제가 가지고 있는 도구를 사용할 수 있습니다.
- 하지만 일반적인 질문에는 최선을 다해 답변해 드릴 것입니다.'
 답변은 항상 마크다운으로 답하고 보기좋게 간격을 두세요.
 `;
 export function chatMessagesHandler(openai: OpenAI) {
